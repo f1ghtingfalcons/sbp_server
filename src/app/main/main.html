@@ -1,0 +1,39 @@
+<div layout="vertical" layout-fill>
+
+  <md-content>
+    <section class="jumbotron">
+      <h1>RTK Console</h1>
+      <p class="lead">
+        RTK Status
+      </p>
+    </section>
+
+    <div class="techs" layout-align="center">
+      <md-card>
+        <md-card-content>
+          <h3 class="md-title">GPS Position</h3>
+          <p>x: {{gps.position.x}}</p>
+          <p>y: {{gps.position.y}}</p>
+          <p>z: {{gps.position.z}}</p>
+        </md-card-content>
+      </md-card>
+      <md-card>
+        <md-card-content>
+          <h3 class="md-title">Gimbal Offset</h3>
+          <p>x: {{gimbal.offset.x}}</p>
+          <p>y: {{gimbal.offset.y}}</p>
+          <p>z: {{gimbal.offset.z}}</p>
+        </md-card-content>
+      </md-card>
+      <md-card>
+        <md-card-content>
+          <h3 class="md-title">Drone Offset</h3>
+          <p>x: {{drone.offset.x}}</p>
+          <p>y: {{drone.offset.y}}</p>
+          <p>z: {{drone.offset.z}}</p>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-content>
+
+</div>
