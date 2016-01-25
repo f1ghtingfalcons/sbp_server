@@ -79,3 +79,7 @@ section.jumbotron h1 {
 .good {
     color: green;
 }
+
+.offset-input {
+    width: 75%;
+}

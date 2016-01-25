@@ -30,7 +30,7 @@ var contents;
 udp.on('message', (msg, rinfo) => {
     contents = decoder(msg);
     if ( contents.messageType === 'MSG_POS_ECEF'){
-        console.log(contents.fields);   
+        console.log(contents.fields);
     }
 });
 

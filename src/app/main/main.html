@@ -20,17 +20,17 @@
       <md-card flex="25">
         <md-card-content>
           <h3 class="md-title">Gimbal Offset</h3>
-          <p>x: <input type="number" ng-model="gimbal.offset.x"></p>
-          <p>y: <input type="number" ng-model="gimbal.offset.y"></p>
-          <p>z: <input type="number" ng-model="gimbal.offset.z"></p>
+          <p>x: <input class="offset-input" type="number" ng-model="main.gimbal.offset.x"></p>
+          <p>y: <input class="offset-input" type="number" ng-model="main.gimbal.offset.y"></p>
+          <p>z: <input class="offset-input" type="number" ng-model="main.gimbal.offset.z"></p>
         </md-card-content>
       </md-card>
       <md-card flex="25">
         <md-card-content>
           <h3 class="md-title">Drone Offset</h3>
-          <p>x: <input type="number" ng-model="drone.offset.x"></p>
-          <p>y: <input type="number" ng-model="drone.offset.y"></p>
-          <p>z: <input type="number" ng-model="drone.offset.z"></p>
+          <p>x: <input class="offset-input" type="number" ng-model="main.drone.offset.x"></p>
+          <p>y: <input class="offset-input" type="number" ng-model="main.drone.offset.y"></p>
+          <p>z: <input class="offset-input" type="number" ng-model="main.drone.offset.z"></p>
         </md-card-content>
       </md-card>
     </div>
@@ -38,12 +38,18 @@
     <div layout="row" flex="100" layout-align="center center" flex="80">
       <md-card flex="15">
         <md-card-content>
-          <h3 class="md-title">Piksi Status: <a class="good">Connected</a></h3>
+          <h3 class="md-title">Piksi Status: 
+              <a ng-if="main.gps.connection" class="good">Connected</a>
+              <a ng-if="!main.gps.connection" class="warn">No Signal</a>
+          </h3>
         </md-card-content>
       </md-card>
       <md-card flex="15">
         <md-card-content>
-          <h3 class="md-title">Gimbal Status: <a class="warn">No Signal</a></h3>
+          <h3 class="md-title">Gimbal Status:
+              <a ng-if="main.gimbal.connection" class="good">Connected</a>
+              <a ng-if="!main.gimbal.connection" class="warn">No Signal</a>
+          </h3>
         </md-card-content>
     </div>
   </md-content>
