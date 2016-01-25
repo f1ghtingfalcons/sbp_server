@@ -11,6 +11,7 @@
     
     vm.gps = {
         connection: true,
+        lock: true,
         position: {
             x: 1032.234234,
             y: 234.234234,

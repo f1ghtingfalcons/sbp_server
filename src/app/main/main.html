@@ -4,7 +4,9 @@
     <section class="jumbotron">
       <h1>RTK Console</h1>
       <p class="lead">
-        RTK Status: Lock: <a class="warn">No</a> 
+        RTK Status: Lock: 
+        <a ng-if="!main.gps.lock" class="warn">No</a>
+         <a ng-if="main.gps.lock" class="good">Locked</a>
       </p>
     </section>
 
