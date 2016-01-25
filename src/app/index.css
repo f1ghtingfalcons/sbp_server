@@ -41,8 +41,11 @@ html {
   font-family: 'Roboto Slab', serif;
 }
 
-[layout=row] {
-  flex-direction: row;
+body {
+  width:100%;
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
 }
 
 .browsehappy {
@@ -69,16 +72,10 @@ section.jumbotron h1 {
   font-size: 3em;
 }
 
-.techs {
-  display: flex;
-  flex-flow: row wrap;
+.warn {
+    color: red;
 }
 
-.techs md-card {
-  width: 30%;
-}
-
-.techs md-card img.pull-right {
-  float: right;
-  width: 100px;
+.good {
+    color: green;
 }

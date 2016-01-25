@@ -1,38 +1,50 @@
 <div layout="vertical" layout-fill>
 
-  <md-content>
+  <md-content class="layout-margin" layout-fill>
     <section class="jumbotron">
       <h1>RTK Console</h1>
       <p class="lead">
-        RTK Status
+        RTK Status: Lock: <a class="warn">No</a> 
       </p>
     </section>
 
-    <div class="techs" layout-align="center">
-      <md-card>
+    <div layout="row" layout-align="center">
+      <md-card flex="25">
         <md-card-content>
           <h3 class="md-title">GPS Position</h3>
-          <p>x: {{gps.position.x}}</p>
-          <p>y: {{gps.position.y}}</p>
-          <p>z: {{gps.position.z}}</p>
+          <p>x: {{main.gps.position.x}}</p>
+          <p>y: {{main.gps.position.y}}</p>
+          <p>z: {{main.gps.position.z}}</p>
         </md-card-content>
       </md-card>
-      <md-card>
+      <md-card flex="25">
         <md-card-content>
           <h3 class="md-title">Gimbal Offset</h3>
-          <p>x: {{gimbal.offset.x}}</p>
-          <p>y: {{gimbal.offset.y}}</p>
-          <p>z: {{gimbal.offset.z}}</p>
+          <p>x: <input type="number" ng-model="gimbal.offset.x"></p>
+          <p>y: <input type="number" ng-model="gimbal.offset.y"></p>
+          <p>z: <input type="number" ng-model="gimbal.offset.z"></p>
         </md-card-content>
       </md-card>
-      <md-card>
+      <md-card flex="25">
         <md-card-content>
           <h3 class="md-title">Drone Offset</h3>
-          <p>x: {{drone.offset.x}}</p>
-          <p>y: {{drone.offset.y}}</p>
-          <p>z: {{drone.offset.z}}</p>
+          <p>x: <input type="number" ng-model="drone.offset.x"></p>
+          <p>y: <input type="number" ng-model="drone.offset.y"></p>
+          <p>z: <input type="number" ng-model="drone.offset.z"></p>
         </md-card-content>
       </md-card>
+    </div>
+    
+    <div layout="row" flex="100" layout-align="center center" flex="80">
+      <md-card flex="15">
+        <md-card-content>
+          <h3 class="md-title">Piksi Status: <a class="good">Connected</a></h3>
+        </md-card-content>
+      </md-card>
+      <md-card flex="15">
+        <md-card-content>
+          <h3 class="md-title">Gimbal Status: <a class="warn">No Signal</a></h3>
+        </md-card-content>
     </div>
   </md-content>
 

@@ -4,7 +4,6 @@
 
   angular
     .module('ty')
-    .constant('malarkey', malarkey)
     .constant('moment', moment);
 
 })();
