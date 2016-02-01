@@ -85,7 +85,7 @@
     //limit the number of plotted points
     //this will eliminate lag in the browser
     var counter = 0;
-    var MAX_DATA = 100;
+    var MAX_DATA = 1000;
     //if no data report no connection
     var MAX_IDLE = 500; //time in milliseconds (approximate)
     
@@ -101,8 +101,10 @@
         vm.solution.y = vm.gps.position.y + vm.gimbal.offset.y + vm.drone.offset.y;
         vm.solution.z = vm.gps.position.z + vm.gimbal.offset.z + vm.drone.offset.z;
         vm.data[0].values[counter] = {
+            tow: data.tow,
             x: data.e,
             y: data.n,
+            z: data.d,
             size: 0.75,
             shape: 'cross'
         };
@@ -115,5 +117,18 @@
         /// Reset the timeout
         timeout= $timeout( function(){ vm.gps.connection = false } , MAX_IDLE);
     });
+    
+    vm.getDataArray = function() {
+        var ret = [];
+        angular.forEach( vm.data[0].values, function(value){
+           ret.push({
+               tow: value.tow,
+               x: value.x,
+               y: value.y,
+               z: value.z
+           });
+        });
+        return ret;
+    }
   }
 })();

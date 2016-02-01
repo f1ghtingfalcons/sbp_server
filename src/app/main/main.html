@@ -42,7 +42,7 @@
       </md-card>
     </div>
     
-    <div layout="row" flex="100" layout-align="center center" flex="80">
+    <div layout="row" flex="100" layout-align="center center">
       <md-card flex="15">
         <md-card-content>
           <h3 class="md-title">Piksi Status: 
@@ -64,7 +64,13 @@
           </h3>
         </md-card-content>
     </div>
-    <nvd3 options="main.options" data="main.data" config="main.config"></nvd3>
+    
+    <div layout="row" layout-align="center center" flex="100">
+        <md-card flex="80">
+            <nvd3 options="main.options" data="main.data" config="main.config"></nvd3>
+            <md-button ng-csv="main.getDataArray()" filename="data.csv">Export</md-button>
+        </md-card>
+    </div>
   </md-content>
 
 </div>
