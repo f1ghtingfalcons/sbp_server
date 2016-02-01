@@ -1,9 +1,10 @@
-/* global malarkey:false, moment:false */
+/* global io:false, d3:false */
 (function() {
   'use strict';
 
   angular
     .module('ty')
-    .constant('moment', moment);
+    .constant('io', io)
+    .constant('d3', d3);
 
 })();

@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('ty', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngRoute', 'ngMaterial']);
+    .module('ty', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngRoute', 'ngMaterial', 'btford.socket-io', 'nvd3']);
 
 })();

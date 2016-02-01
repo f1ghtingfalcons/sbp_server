@@ -62,7 +62,7 @@ md-toolbar.md-default-theme {
 section.jumbotron {
   margin-bottom: 30px;
   padding: 1px 30px;
-  background-color: #5aadbb;
+  background-color: #01579B;
   text-align: center;
 
   color: white;
@@ -82,4 +82,15 @@ section.jumbotron h1 {
 
 .offset-input {
     width: 75%;
+}
+
+svg {
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    padding: 16px;
+}
+
+md-card {
+    background-color: white;
 }

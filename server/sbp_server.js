@@ -1,25 +1,25 @@
-const dgram  = require('dgram');
-const udp    = dgram.createSocket('udp4');
-var libsbp   = require('libsbp');
-var decoder  = libsbp.decode;
-var app = require('http').createServer(handler)
-var io       = require('socket.io')(app);
+const dgram    = require('dgram');
+const udp      = dgram.createSocket('udp4');
+var libsbp     = require('libsbp');
+var decoder    = libsbp.decode;
+var io         = require('socket.io')(3030);
 
+// set up ========================
+var express    = require('express');
+var app        = express();                               // create our app w/ express
+var morgan     = require('morgan');             // log requests to the console
+var bodyParser = require('body-parser');    // pull information from HTML POST
+
+// configuration =================
+app.use(express.static('../dist'));                 // set the static files location /public/img will be /img for users
+app.use(morgan('dev'));                                         // log every request to the console
+app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
+app.use(bodyParser.json());                                     // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+
+// listen (start app with node server.js) ======================================
 app.listen(80);
-
-//handler
-function handler (req, res) {
-  fs.readFile(__dirname + '/index.html',
-  function (err, data) {
-    if (err) {
-      res.writeHead(500);
-      return res.end('Error loading index.html');
-    }
-
-    res.writeHead(200);
-    res.end(data);
-  });
-}
+console.log("App listening on port 80");
 
 udp.on('error', (err) => {
   console.log(`server error:\n${err.stack}`);
@@ -29,8 +29,8 @@ udp.on('error', (err) => {
 var contents;
 udp.on('message', (msg, rinfo) => {
     contents = decoder(msg);
-    if ( contents.messageType === 'MSG_POS_ECEF'){
-        console.log(contents.fields);
+    if ( contents.messageType === 'MSG_BASELINE_NED'){
+        io.emit('MSG_BASELINE_NED', contents.fields);
     }
 });
 

@@ -2,16 +2,11 @@
 
   <md-content class="layout-margin" layout-fill>
     <section class="jumbotron">
-      <h1>RTK Console</h1>
-      <p class="lead">
-        RTK Status: Lock: 
-        <a ng-if="!main.gps.lock" class="warn">No</a>
-         <a ng-if="main.gps.lock" class="good">Locked</a>
-      </p>
+      <h1>RTK Console</h1>  
     </section>
 
     <div layout="row" layout-align="center">
-      <md-card flex="25">
+      <md-card flex="20">
         <md-card-content>
           <h3 class="md-title">GPS Position</h3>
           <p>x: {{main.gps.position.x}}</p>
@@ -19,20 +14,30 @@
           <p>z: {{main.gps.position.z}}</p>
         </md-card-content>
       </md-card>
-      <md-card flex="25">
+      <md-card flex="20">
         <md-card-content>
           <h3 class="md-title">Gimbal Offset</h3>
           <p>x: <input class="offset-input" type="number" ng-model="main.gimbal.offset.x"></p>
           <p>y: <input class="offset-input" type="number" ng-model="main.gimbal.offset.y"></p>
           <p>z: <input class="offset-input" type="number" ng-model="main.gimbal.offset.z"></p>
+          <md-button flex class="md-raised md-primary" ng-click="main.applyGimbalOffset()">Apply</md-button>
         </md-card-content>
       </md-card>
-      <md-card flex="25">
+      <md-card flex="20">
         <md-card-content>
           <h3 class="md-title">Drone Offset</h3>
           <p>x: <input class="offset-input" type="number" ng-model="main.drone.offset.x"></p>
           <p>y: <input class="offset-input" type="number" ng-model="main.drone.offset.y"></p>
           <p>z: <input class="offset-input" type="number" ng-model="main.drone.offset.z"></p>
+          <md-button flex class="md-raised md-primary" ng-click="main.applyDroneOffset()">Apply</md-button>
+        </md-card-content>
+      </md-card>
+      <md-card flex="20">
+        <md-card-content>
+          <h3 class="md-title">Solution</h3>
+          <p>x: {{main.solution.x}}</p>
+          <p>y: {{main.solution.y}}</p>
+          <p>z: {{main.solution.z}}</p>
         </md-card-content>
       </md-card>
     </div>
@@ -44,6 +49,11 @@
               <a ng-if="main.gps.connection" class="good">Connected</a>
               <a ng-if="!main.gps.connection" class="warn">No Signal</a>
           </h3>
+          <p>
+            Satellites: {{main.gps.n_sats}}
+            <br>
+            Points Collected: {{main.gps.n_points}}
+          </p>
         </md-card-content>
       </md-card>
       <md-card flex="15">
@@ -54,6 +64,7 @@
           </h3>
         </md-card-content>
     </div>
+    <nvd3 options="main.options" data="main.data" config="main.config"></nvd3>
   </md-content>
 
 </div>
